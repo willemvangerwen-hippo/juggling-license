@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  How many balls can you juggle? - Apply for a juggling licence - GOV.UK
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/juggling-trick" method="post">
+      
+      {{ govukRadios({
+        name: "how-many-balls",
+        fieldset: {
+          legend: {
+            text: "How many balls can you juggle?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "3 or more",
+            text: "3 or more"
+          },
+          {
+            value: "1 or 2",
+            text: "1 or 2"
+          },
+          {
+            value: "None - I cannot jugle", 
+            text: "None - I cannot jugle" 
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+{% endblock %}
