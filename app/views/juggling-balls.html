@@ -1,19 +1,20 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  How many balls can you juggle? - Apply for a juggling licence - GOV.UK
+  How many balls dost thou juggle? - Apply for a juggling licence
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/juggling-trick" method="post">
-      
+
+    <form class="form" action="/juggling-balls-answer" method="post">
+
       {{ govukRadios({
-        name: "how-many-balls",
+        name: "juggling-balls",
         fieldset: {
           legend: {
-            text: "How many balls can you juggle?",
+            text: "How many balls dost thou juggle?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -21,15 +22,18 @@
         items: [
           {
             value: "3 or more",
-            text: "3 or more"
+            text: "Three or more"
           },
           {
             value: "1 or 2",
-            text: "1 or 2"
+            text: "One or two"
           },
           {
-            value: "None - I cannot jugle", 
-            text: "None - I cannot jugle" 
+            divider: "or"
+          },
+          {
+            value: "None",
+            text: "None, I cannae juggle"
           }
         ]
       }) }}
@@ -39,6 +43,7 @@
       }) }}
 
     </form>
+
   </div>
 </div>
 {% endblock %}
